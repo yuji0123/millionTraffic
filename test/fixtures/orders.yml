@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  orderId: MyString
+  orderDateTime: 2015-10-17 17:32:43
+  orderUserId: MyString
+  orderItemId: MyString
+  orderQuantity: 1
+  orderState: MyText
+  orderTags: MyText
+
+two:
+  orderId: MyString
+  orderDateTime: 2015-10-17 17:32:43
+  orderUserId: MyString
+  orderItemId: MyString
+  orderQuantity: 1
+  orderState: MyText
+  orderTags: MyText

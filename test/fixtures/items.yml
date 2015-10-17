@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  itemSupplier: MyText
+  itemStockQuantity: 1
+  itemBasePrice: 1
+  itemTag: MyText
+
+two:
+  itemSupplier: MyText
+  itemStockQuantity: 1
+  itemBasePrice: 1
+  itemTag: MyText
