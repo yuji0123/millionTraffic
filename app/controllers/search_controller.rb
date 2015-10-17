@@ -56,6 +56,19 @@ class SearchController < ApplicationController
 			end
 		end
 
+		if params[:findByOrderTagsIncludeAny] != nil then
+			@orders = Order.all
+			tags = params[:findByOrderTagsIncludeAny].split(",")
+			tags.each{|tag|
+				@orders = @orders.where("orderTags not like '%" + tag + "%'")
+			}
+			if params[:limit] != nil then
+				@orders = @orders.limit(params[:limit].to_i)
+			else
+				@orders = @orders.limit(100)
+			end
+		end
+
 
 
     	  @result = "true"
