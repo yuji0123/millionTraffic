@@ -2,7 +2,7 @@ class CreateOrders < ActiveRecord::Migration
   def change
     create_table :orders do |t|
       t.string :orderId
-      t.string :orderDateTime
+      t.integer :orderDateTime
       t.string :orderUserId
       t.string :orderItemId
       t.integer :orderQuantity

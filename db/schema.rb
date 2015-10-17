@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20151017083243) do
 
   create_table "orders", force: :cascade do |t|
     t.string   "orderId",       limit: 255
-    t.string   "orderDateTime", limit: 255
+    t.integer  "orderDateTime", limit: 4
     t.string   "orderUserId",   limit: 255
     t.string   "orderItemId",   limit: 255
     t.integer  "orderQuantity", limit: 4

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'getOrder/:orderId' => 'orders#show', defaults: { format: "json" }
-  get 'searchOrder' => 'search#search_order'
+  get 'searchOrder' => 'search#findby', defaults: { format: "json" }
   resources :orders
   resources :items
   resources :users
