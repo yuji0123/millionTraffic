@@ -13,10 +13,18 @@ class OrdersController < ApplicationController
     @order = Order.where(orderId: params[:orderId]).take
     if @order != nil then
       @result = "true"
+      render status: :ok
     else
       @result = "false"
+      @order = "null"
+      render status: :not_found
     end
   end
+
+  # GET
+
+
+
 
   # GET /orders/new
   def new
