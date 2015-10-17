@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'getOrder/:orderId' => 'orders#show'
+  get 'getOrder/:orderId' => 'orders#show', defaults: { format: "json" }
   resources :orders
   resources :items
   resources :users

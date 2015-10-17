@@ -10,7 +10,12 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
-    @order = Order.where('orders.orderId == ?' ,params[:orderId])
+    @order = Order.where(orderId: params[:orderId]).take
+    if @order != nil then
+      @result = "true"
+    else
+      @result = "false"
+    end
   end
 
   # GET /orders/new
