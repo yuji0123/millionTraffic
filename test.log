@@ -1,0 +1,210 @@
+No-01-01-orderDateTimeの範囲（GTE）
+Judge:Incorrect
+Options:{ port: 80,
+  method: 'GET',
+  hostname: '54.199.213.45',
+  headers: { Connection: 'close' },
+  path: '/searchOrder?findByOrderDateTimeGTE=1305873190&limit=38' }
+DecodedPath:/searchOrder?findByOrderDateTimeGTE=1305873190&limit=38
+Senario Logs:[ [ 'result=trueで無い', { result: 'true' } ],
+  [ 'TAT', { TAT: undefined, TimeOut: 1000 } ] ]
+
+No-01-02-orderDateTimeの範囲（LTE）
+Judge:Incorrect
+Options:{ port: 80,
+  method: 'GET',
+  hostname: '54.199.213.45',
+  headers: { Connection: 'close' },
+  path: '/searchOrder?findByOrderDateTimeLTE=1040891525&limit=70' }
+DecodedPath:/searchOrder?findByOrderDateTimeLTE=1040891525&limit=70
+Senario Logs:[ [ 'result=trueで無い', { result: 'true' } ],
+  [ 'TAT', { TAT: undefined, TimeOut: 1000 } ] ]
+
+No-01-03-orderUserIdの一致
+Judge:Incorrect
+Options:{ port: 80,
+  method: 'GET',
+  hostname: '54.199.213.45',
+  headers: { Connection: 'close' },
+  path: '/searchOrder?findByOrderUserId=Usyxzc5b&limit=52' }
+DecodedPath:/searchOrder?findByOrderUserId=Usyxzc5b&limit=52
+Senario Logs:[ [ 'result=trueで無い', { result: 'true' } ],
+  [ 'TAT', { TAT: undefined, TimeOut: 1000 } ] ]
+
+No-01-04-orderUserIdの一致
+Judge:Incorrect
+Options:{ port: 80,
+  method: 'GET',
+  hostname: '54.199.213.45',
+  headers: { Connection: 'close' },
+  path: '/searchOrder?findByOrderItemId=Itk1f6h5&limit=37' }
+DecodedPath:/searchOrder?findByOrderItemId=Itk1f6h5&limit=37
+Senario Logs:[ [ 'result=trueで無い', { result: 'true' } ],
+  [ 'TAT', { TAT: undefined, TimeOut: 1000 } ] ]
+
+No-01-05-orderQuantityの範囲（GTE）
+Judge:Incorrect
+Options:{ port: 80,
+  method: 'GET',
+  hostname: '54.199.213.45',
+  headers: { Connection: 'close' },
+  path: '/searchOrder?findByOrderQuantityGTE=19&limit=38' }
+DecodedPath:/searchOrder?findByOrderQuantityGTE=19&limit=38
+Senario Logs:[ [ 'result=trueで無い', { result: 'true' } ],
+  [ 'TAT', { TAT: undefined, TimeOut: 1000 } ] ]
+
+No-01-06-orderQuantityの範囲（LTE）
+Judge:Incorrect
+Options:{ port: 80,
+  method: 'GET',
+  hostname: '54.199.213.45',
+  headers: { Connection: 'close' },
+  path: '/searchOrder?findByOrderQuantityLTE=24&limit=90' }
+DecodedPath:/searchOrder?findByOrderQuantityLTE=24&limit=90
+Senario Logs:[ [ 'result=trueで無い', { result: 'true' } ],
+  [ 'TAT', { TAT: undefined, TimeOut: 1000 } ] ]
+
+No-01-07-orderStateの一致
+Judge:Incorrect
+Options:{ port: 80,
+  method: 'GET',
+  hostname: '54.199.213.45',
+  headers: { Connection: 'close' },
+  path: '/searchOrder?findByOrderState=%E3%82%AD%E3%83%A3%E3%83%B3%E3%82%BB%E3%83%AB&limit=13' }
+DecodedPath:/searchOrder?findByOrderState=キャンセル&limit=13
+Senario Logs:[ [ 'result=trueで無い', { result: 'true' } ],
+  [ 'TAT', { TAT: undefined, TimeOut: 1000 } ] ]
+
+No-01-08-orderTagsのALL一致
+Judge:Incorrect
+Options:{ port: 80,
+  method: 'GET',
+  hostname: '54.199.213.45',
+  headers: { Connection: 'close' },
+  path: '/searchOrder?findByOrderTagsIncludeAll=2Q%E4%BA%88%E7%AE%97%2C4Q%E4%BA%88%E7%AE%97%2C%E9%83%B5%E9%80%81&limit=21' }
+DecodedPath:/searchOrder?findByOrderTagsIncludeAll=2Q予算,4Q予算,郵送&limit=21
+Senario Logs:[ [ 'result=trueで無い', { result: 'true' } ],
+  [ 'TAT', { TAT: undefined, TimeOut: 1000 } ] ]
+
+No-01-09-orderTagsのAny一致
+Judge:Incorrect
+Options:{ port: 80,
+  method: 'GET',
+  hostname: '54.199.213.45',
+  headers: { Connection: 'close' },
+  path: '/searchOrder?findByOrderTagsIncludeAny=%E5%8D%B3%E7%B4%8D%2C%E6%9C%88%E6%9C%AB%E7%B4%8D%E5%93%81%2C2Q%E4%BA%88%E7%AE%97%2C%E8%87%A8%E6%99%82%2C%E6%8C%81%E3%81%A1%E8%BE%BC%E3%81%BF&limit=31' }
+DecodedPath:/searchOrder?findByOrderTagsIncludeAny=即納,月末納品,2Q予算,臨時,持ち込み&limit=31
+Senario Logs:[ [ 'result=trueで無い', { result: 'true' } ],
+  [ 'TAT', { TAT: undefined, TimeOut: 1000 } ] ]
+
+No-02-01-userCompanyの一致
+Judge:Incorrect
+Options:{ port: 80,
+  method: 'GET',
+  hostname: '54.199.213.45',
+  headers: { Connection: 'close' },
+  path: '/searchOrder?findByUserCompany=%E5%A4%A7%E9%98%AAABC%E3%82%A2%E3%83%BC%E3%83%86%E3%82%A3%E3%83%95%E3%82%A3%E3%82%B7%E3%83%A3%E3%83%AB%E3%82%A4%E3%83%B3%E3%83%86%E3%83%AA%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E5%88%B6%E4%BD%9C&limit=6' }
+DecodedPath:/searchOrder?findByUserCompany=大阪ABCアーティフィシャルインテリジェント制作&limit=6
+Senario Logs:[ [ 'result=trueで無い', { result: 'true' } ],
+  [ 'TAT', { TAT: undefined, TimeOut: 1000 } ] ]
+
+No-02-02-userDiscountRateの範囲（GTE）
+Judge:Incorrect
+Options:{ port: 80,
+  method: 'GET',
+  hostname: '54.199.213.45',
+  headers: { Connection: 'close' },
+  path: '/searchOrder?findByUserDiscountRateGTE=24&limit=6' }
+DecodedPath:/searchOrder?findByUserDiscountRateGTE=24&limit=6
+Senario Logs:[ [ 'result=trueで無い', { result: 'true' } ],
+  [ 'TAT', { TAT: undefined, TimeOut: 1000 } ] ]
+
+No-02-03-userDiscountRateの範囲（LTE）
+Judge:Incorrect
+Options:{ port: 80,
+  method: 'GET',
+  hostname: '54.199.213.45',
+  headers: { Connection: 'close' },
+  path: '/searchOrder?findByUserDiscountRateLTE=20&limit=11' }
+DecodedPath:/searchOrder?findByUserDiscountRateLTE=20&limit=11
+Senario Logs:[ [ 'result=trueで無い', { result: 'true' } ],
+  [ 'TAT', { TAT: undefined, TimeOut: 1000 } ] ]
+
+No-03-01-itemSupplierの一致
+Judge:Incorrect
+Options:{ port: 80,
+  method: 'GET',
+  hostname: '54.199.213.45',
+  headers: { Connection: 'close' },
+  path: '/searchOrder?findByItemSupplier=%E3%83%AA%E3%83%B3%E3%83%80%E5%BB%BA%E8%A8%AD&limit=79' }
+DecodedPath:/searchOrder?findByItemSupplier=リンダ建設&limit=79
+Senario Logs:[ [ 'result=trueで無い', { result: 'true' } ],
+  [ 'TAT', { TAT: undefined, TimeOut: 1000 } ] ]
+
+No-03-02-itemStockQuantityの範囲（GTE）
+Judge:Incorrect
+Options:{ port: 80,
+  method: 'GET',
+  hostname: '54.199.213.45',
+  headers: { Connection: 'close' },
+  path: '/searchOrder?findByItemStockQuantityGTE=2204&limit=77' }
+DecodedPath:/searchOrder?findByItemStockQuantityGTE=2204&limit=77
+Senario Logs:[ [ 'result=trueで無い', { result: 'true' } ],
+  [ 'TAT', { TAT: undefined, TimeOut: 1000 } ] ]
+
+No-03-03-itemStockQuantityの範囲（LTE）
+Judge:Incorrect
+Options:{ port: 80,
+  method: 'GET',
+  hostname: '54.199.213.45',
+  headers: { Connection: 'close' },
+  path: '/searchOrder?findByItemStockQuantityLTE=1061&limit=65' }
+DecodedPath:/searchOrder?findByItemStockQuantityLTE=1061&limit=65
+Senario Logs:[ [ 'result=trueで無い', { result: 'true' } ],
+  [ 'TAT', { TAT: undefined, TimeOut: 1000 } ] ]
+
+No-03-04-itemBasePriceの範囲（LTE）
+Judge:Incorrect
+Options:{ port: 80,
+  method: 'GET',
+  hostname: '54.199.213.45',
+  headers: { Connection: 'close' },
+  path: '/searchOrder?findByItemBasePriceGTE=29700&limit=5' }
+DecodedPath:/searchOrder?findByItemBasePriceGTE=29700&limit=5
+Senario Logs:[ [ 'result=trueで無い', { result: 'true' } ],
+  [ 'TAT', { TAT: undefined, TimeOut: 1000 } ] ]
+
+No-03-05-itemBasePriceの範囲（LTE）
+Judge:Incorrect
+Options:{ port: 80,
+  method: 'GET',
+  hostname: '54.199.213.45',
+  headers: { Connection: 'close' },
+  path: '/searchOrder?findByItemBasePriceLTE=88800&limit=10' }
+DecodedPath:/searchOrder?findByItemBasePriceLTE=88800&limit=10
+Senario Logs:[ [ 'result=trueで無い', { result: 'true' } ],
+  [ 'TAT', { TAT: undefined, TimeOut: 1000 } ] ]
+
+No-03-06-itemTagsのALL一致
+Judge:Incorrect
+Options:{ port: 80,
+  method: 'GET',
+  hostname: '54.199.213.45',
+  headers: { Connection: 'close' },
+  path: '/searchOrder?findByItemTagsIncludeAll=%E9%A3%9F%E6%96%99%2C%E8%A6%8B%E5%88%87%E3%82%8A%E5%93%81%2C%E3%83%8F%E3%82%A4%E3%82%AF%E3%82%AA%E3%83%AA%E3%83%86%E3%82%A3%2C%E3%82%BF%E3%83%96%E3%83%AC%E3%83%83%E3%83%88%E5%8D%98%E4%BD%8D%2C%E3%82%AD%E3%83%83%E3%83%88&limit=52' }
+DecodedPath:/searchOrder?findByItemTagsIncludeAll=食料,見切り品,ハイクオリティ,タブレット単位,キット&limit=52
+Senario Logs:[ [ 'result=trueで無い', { result: 'true' } ],
+  [ 'TAT', { TAT: undefined, TimeOut: 1000 } ] ]
+
+No-03-07-itemTagsのAny一致
+Judge:Incorrect
+Options:{ port: 80,
+  method: 'GET',
+  hostname: '54.199.213.45',
+  headers: { Connection: 'close' },
+  path: '/searchOrder?findByItemTagsIncludeAny=%E5%B7%A5%E4%BD%9C%E6%A9%9F%E6%A2%B0%2C%E6%AC%A0%E9%99%A5%E5%93%81%2C%E6%B6%88%E8%80%97%E5%93%81%2C%E3%82%B1%E3%83%BC%E3%82%B9%E5%8D%98%E4%BD%8D&limit=5' }
+DecodedPath:/searchOrder?findByItemTagsIncludeAny=工作機械,欠陥品,消耗品,ケース単位&limit=5
+Senario Logs:[ [ 'result=trueで無い', { result: 'true' } ],
+  [ 'TAT', { TAT: undefined, TimeOut: 1000 } ] ]
+
+Finished.
