@@ -53,7 +53,12 @@ class SearchController < ApplicationController
 			@orders = @orders.find_by_sql(query_str)
 		end
 		if params[:findByOrderState] != nil then
-			@orders = @orders.where(orderState: params[:findByOrderState])
+			query_str = ''
+			query_str << 'select * from orders where orders.orderState = "'
+			query_str << params[:findByOrderState]
+			query_str << '" order by orderDateTime desc limit '
+			query_str << params[:limit]
+			@orders = @orders.find_by_sql(query_str)
 		end
 
 		if params[:findByOrderTagsIncludeAll] != nil then
