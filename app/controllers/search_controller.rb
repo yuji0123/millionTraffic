@@ -22,17 +22,17 @@ class SearchController < ApplicationController
 		end
 		if params[:findByOrderUserId] != nil then
 			query_str = ''
-			query_str << 'select * from orders where orders.orderUserId = '
+			query_str << 'select * from orders where orders.orderUserId = "'
 			query_str << params[:findByOrderUserId]
-			query_str << ' order by orderDateTime desc limit '
+			query_str << '" order by orderDateTime desc limit '
 			query_str << params[:limit]
 			@orders = @orders.find_by_sql(query_str)
 		end
 		if params[:findByOrderItemId] != nil then
 			query_str = ''
-			query_str << 'select * from orders where orders.orderItemId = '
+			query_str << 'select * from orders where orders.orderItemId = "'
 			query_str << params[:findByOrderUserId]
-			query_str << ' order by orderDateTime desc limit '
+			query_str << '" order by orderDateTime desc limit '
 			query_str << params[:limit]
 			@orders = @orders.find_by_sql(query_str)
 		end
