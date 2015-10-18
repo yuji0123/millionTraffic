@@ -1,5 +1,5 @@
 json.set! "result", @result
-if @result == "true" then
+if @result then
 	json.set! "data" do
 		json.array! @orders do |order|
 		    json.orderId order.orderId
