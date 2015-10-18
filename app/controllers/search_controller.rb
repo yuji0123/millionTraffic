@@ -69,12 +69,12 @@ class SearchController < ApplicationController
 			end
 		end
 
-
-
+		# if @orders != nil then
+		# 	@orders.each{|order|
+		# 		order.orderTags = order.orderTags.split(',')
+		# 	}
+		# end
     	  @result = true
 	      render status: :ok
-
-
-
 	end
 end

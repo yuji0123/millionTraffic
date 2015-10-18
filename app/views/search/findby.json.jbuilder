@@ -8,7 +8,9 @@ if @result then
 		    json.orderItemId order.orderItemId
 		    json.orderQuantity order.orderQuantity
 		    json.orderState order.orderState
-		    json.tags order.orderTags
+		    json.tags do
+			    json.array! (order.orderTags.split(','))
+			end
 		end
 	end
 end
