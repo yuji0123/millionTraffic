@@ -81,12 +81,7 @@ class SearchController < ApplicationController
 		end
 
 		if params[:findByOrderTagsIncludeAny] != nil then
-			scopes = Array.new
-			tags = params[:findByOrderTagsIncludeAny].split(",")
-			tags.each{|tag|
-				scopes.push(@orders.where("orderTags like '%" + tag + "%'"))
-			}
-
+			@order = nil
 		end
 
 		if params[:findByUserCompany] != nil then
