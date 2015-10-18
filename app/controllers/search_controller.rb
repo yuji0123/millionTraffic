@@ -71,7 +71,7 @@ class SearchController < ApplicationController
 
 
 
-    	  @result = "true"
+    	  @result = true
 	      render status: :ok
 
 
