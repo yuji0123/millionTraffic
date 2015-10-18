@@ -46,7 +46,7 @@ class SearchController < ApplicationController
 		end
 		if params[:findByOrderQuantityLTE] != nil then
 			query_str = ''
-			query_str << 'select * from orders where orders.orderQuantity >= '
+			query_str << 'select * from orders where orders.orderQuantity <= '
 			query_str << params[:findByOrderQuantityLTE]
 			query_str << ' order by orderDateTime desc limit '
 			query_str << params[:limit]
