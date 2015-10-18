@@ -1,12 +1,12 @@
 class SearchController < ApplicationController
 	def findby
 		if params[:findByOrderDateTimeGTE] != nil then
-			@orders = Order.find_by_sql('select * from orders where orders.orderDateTime >= ' + params[:findByOrderDateTimeGTE])
-			# if params[:limit] != nil then
-			# 	@orders = @orders.limit(params[:limit].to_i)
-			# else
-			# 	@orders = @orders.limit(100)
-			# end
+			@orders = Order.where('orderDateTime >= ?', params[:findByOrderDateTimeGTE].to_i).order('orderDateTime desc')
+			if params[:limit] != nil then
+				@orders = @orders.limit(params[:limit].to_i)
+			else
+				@orders = @orders.limit(100)
+			end
 		end
 		if params[:findByOrderDateTimeLTE] != nil then
 			@orders = Order.where('orderDateTime <= ?', params[:findByOrderDateTimeLTE].to_i).order('orderDateTime desc')
