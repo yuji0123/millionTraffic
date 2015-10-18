@@ -2,86 +2,104 @@ class SearchController < ApplicationController
 
 
 	def findby
+		@query_str = ''
 		@orders = Order.all
 		if params[:findByOrderDateTimeGTE] != nil then
-			query_str = ''
-			query_str << 'select * from orders where orders.orderDateTime >= '
-			query_str << params[:findByOrderDateTimeGTE]
-			query_str << ' order by orderDateTime desc limit '
-			query_str << params[:limit]
-			@orders = @orders.find_by_sql(query_str)
+			@query_str = ''
+			@query_str << 'select * from orders where orders.orderDateTime >= '
+			@query_str << params[:findByOrderDateTimeGTE]
+			@query_str << ' order by orderDateTime desc limit '
+			@query_str << params[:limit]
+			@orders = @orders.find_by_sql(@query_str)
 
 		end
 		if params[:findByOrderDateTimeLTE] != nil then
-			query_str = ''
-			query_str << 'select * from orders where orders.orderDateTime <= '
-			query_str << params[:findByOrderDateTimeLTE]
-			query_str << ' order by orderDateTime desc limit '
-			query_str << params[:limit]
-			@orders = @orders.find_by_sql(query_str)
+			@query_str = ''
+			@query_str << 'select * from orders where orders.orderDateTime <= '
+			@query_str << params[:findByOrderDateTimeLTE]
+			@query_str << ' order by orderDateTime desc limit '
+			@query_str << params[:limit]
+			@orders = @orders.find_by_sql(@query_str)
 		end
 		if params[:findByOrderUserId] != nil then
-			query_str = ''
-			query_str << 'select * from orders where orders.orderUserId = "'
-			query_str << params[:findByOrderUserId]
-			query_str << '" order by orderDateTime desc limit '
-			query_str << params[:limit]
-			@orders = @orders.find_by_sql(query_str)
+			@query_str = ''
+			@query_str << 'select * from orders where orders.orderUserId = "'
+			@query_str << params[:findByOrderUserId]
+			@query_str << '" order by orderDateTime desc limit '
+			@query_str << params[:limit]
+			@orders = @orders.find_by_sql(@query_str)
 		end
 		if params[:findByOrderItemId] != nil then
-			query_str = ''
-			query_str << 'select * from orders where orders.orderItemId = "'
-			query_str << params[:findByOrderItemId]
-			query_str << '" order by orderDateTime desc limit '
-			query_str << params[:limit]
-			@orders = @orders.find_by_sql(query_str)
+			@query_str = ''
+			@query_str << 'select * from orders where orders.orderItemId = "'
+			@query_str << params[:findByOrderItemId]
+			@query_str << '" order by orderDateTime desc limit '
+			@query_str << params[:limit]
+			@orders = @orders.find_by_sql(@query_str)
 		end
 		if params[:findByOrderQuantityGTE] != nil then
-			query_str = ''
-			query_str << 'select * from orders where orders.orderQuantity >= '
-			query_str << params[:findByOrderQuantityGTE]
-			query_str << ' order by orderDateTime desc limit '
-			query_str << params[:limit]
-			@orders = @orders.find_by_sql(query_str)
+			@query_str = ''
+			@query_str << 'select * from orders where orders.orderQuantity >= '
+			@query_str << params[:findByOrderQuantityGTE]
+			@query_str << ' order by orderDateTime desc limit '
+			@query_str << params[:limit]
+			@orders = @orders.find_by_sql(@query_str)
 		end
 		if params[:findByOrderQuantityLTE] != nil then
-			query_str = ''
-			query_str << 'select * from orders where orders.orderQuantity <= '
-			query_str << params[:findByOrderQuantityLTE]
-			query_str << ' order by orderDateTime desc limit '
-			query_str << params[:limit]
-			@orders = @orders.find_by_sql(query_str)
+			@query_str = ''
+			@query_str << 'select * from orders where orders.orderQuantity <= '
+			@query_str << params[:findByOrderQuantityLTE]
+			@query_str << ' order by orderDateTime desc limit '
+			@query_str << params[:limit]
+			@orders = @orders.find_by_sql(@query_str)
 		end
 		if params[:findByOrderState] != nil then
-			query_str = ''
-			query_str << 'select * from orders where orders.orderState = "'
-			query_str << params[:findByOrderState]
-			query_str << '" order by orderDateTime desc limit '
-			query_str << params[:limit]
-			@orders = @orders.find_by_sql(query_str)
+			@query_str = ''
+			@query_str << 'select * from orders where orders.orderState = "'
+			@query_str << params[:findByOrderState]
+			@query_str << '" order by orderDateTime desc limit '
+			@query_str << params[:limit]
+			@orders = @orders.find_by_sql(@query_str)
 		end
 
 		if params[:findByOrderTagsIncludeAll] != nil then
-			query_str = ''
-			query_str << 'select * from orders '
+			@query_str = ''
+			@query_str << 'select * from orders where '
 			tags = params[:findByOrderTagsIncludeAll].split(",")
 			lastTag = tags.last
-			tags.each{|tag|
+			for tag in tags do
 				_tag = tag
-				query_str << 'where orders.orderTags '
-				query_str << 'like "%'
-				query_str << _tag
-				query_str << '%"'
+				@query_str += 'orders.orderTags '
+				@query_str += 'like "%'
+				@query_str += _tag
+				@query_str += '%"'
 				if _tag != lastTag then
-					query_str << ' or '
+					@query_str += ' and '
 				end
-			}
-			query_str << ' limit '
-			query_str << params[:limit]
+			end
+			@query_str << ' limit '
+			@query_str << params[:limit]
+			@orders = @orders.find_by_sql(@query_str)
 		end
 
 		if params[:findByOrderTagsIncludeAny] != nil then
-			@order = nil
+			@query_str = ''
+			@query_str << 'select * from orders where '
+			tags = params[:findByOrderTagsIncludeAny].split(",")
+			lastTag = tags.last
+			for tag in tags do
+				_tag = tag
+				@query_str += 'orders.orderTags '
+				@query_str += 'like "%'
+				@query_str += _tag
+				@query_str += '%"'
+				if _tag != lastTag then
+					@query_str += ' and '
+				end
+			end
+			@query_str << ' limit '
+			@query_str << params[:limit]
+			@orders = @orders.find_by_sql(@query_str)
 		end
 
 		if params[:findByUserCompany] != nil then
