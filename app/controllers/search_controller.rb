@@ -31,7 +31,7 @@ class SearchController < ApplicationController
 		if params[:findByOrderItemId] != nil then
 			query_str = ''
 			query_str << 'select * from orders where orders.orderItemId = "'
-			query_str << params[:findByOrderUserId]
+			query_str << params[:findByOrderItemId]
 			query_str << '" order by orderDateTime desc limit '
 			query_str << params[:limit]
 			@orders = @orders.find_by_sql(query_str)
