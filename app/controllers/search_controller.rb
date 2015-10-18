@@ -6,59 +6,24 @@ class SearchController < ApplicationController
 		if params[:findByOrderDateTimeGTE] != nil then
 			# @orders = Order.find_by_sql(['select * from orders where orderDateTime >= ? order by orderDateTime desc limit ?', params[:findByOrderDateTimeGTE].to_i, params[:limit].to_i])
 			@orders = @orders.where('orderDateTime >= ?', params[:findByOrderDateTimeGTE].to_i).order('orderDateTime desc')
-			if params[:limit] != nil then
-				@orders = @orders.limit(params[:limit].to_i)
-			else
-				@orders = @orders.limit(100)
-			end
 		end
 		if params[:findByOrderDateTimeLTE] != nil then
 			@orders = @orders.where('orderDateTime <= ?', params[:findByOrderDateTimeLTE].to_i).order('orderDateTime desc')
-			if params[:limit] != nil then
-				@orders = @orders.limit(params[:limit].to_i)
-			else
-				@orders = @orders.limit(100)
-			end
 		end
 		if params[:findByOrderUserId] != nil then
 			@orders = @orders.where(orderUserId: params[:findByOrderUserId])
-			if params[:limit] != nil then
-				@orders = @orders.limit(params[:limit].to_i)
-			else
-				@orders = @orders.limit(100)
-			end
 		end
 		if params[:findByOrderItemId] != nil then
 			@orders = @orders.where(orderItemId: params[:findByOrderItemId])
-			if params[:limit] != nil then
-				@orders = @orders.limit(params[:limit].to_i)
-			else
-				@orders = @orders.limit(100)
-			end
 		end
 		if params[:findByOrderQuantityGTE] != nil then
 			@orders = @orders.where('orderQuantity >= ?', params[:findByOrderQuantityGTE].to_i).order('orderDateTime desc')
-			if params[:limit] != nil then
-				@orders = @orders.limit(params[:limit].to_i)
-			else
-				@orders = @orders.limit(100)
-			end
 		end
 		if params[:findByOrderQuantityLTE] != nil then
 			@orders = @orders.where('orderQuantity <= ?', params[:findByOrderQuantityLTE].to_i).order('orderDateTime desc')
-			if params[:limit] != nil then
-				@orders = @orders.limit(params[:limit].to_i)
-			else
-				@orders = @orders.limit(100)
-			end
 		end
 		if params[:findByOrderState] != nil then
 			@orders = @orders.where(orderState: params[:findByOrderState])
-			if params[:limit] != nil then
-				@orders = @orders.limit(params[:limit].to_i)
-			else
-				@orders = @orders.limit(100)
-			end
 		end
 
 		if params[:findByOrderTagsIncludeAll] != nil then
@@ -66,11 +31,6 @@ class SearchController < ApplicationController
 			tags.each{|tag|
 				@orders = @orders.where("orderTags like '%" + tag + "%'")
 			}
-			if params[:limit] != nil then
-				@orders = @orders.limit(params[:limit].to_i).order('orderDateTime desc')
-			else
-				@orders = @orders.limit(100).order('orderDateTime asc')
-			end
 		end
 
 		if params[:findByOrderTagsIncludeAny] != nil then
@@ -78,11 +38,6 @@ class SearchController < ApplicationController
 			tags.each{|tag|
 				@orders = @orders.where("orderTags not like '%" + tag + "%'")
 			}
-			if params[:limit] != nil then
-				@orders = @orders.limit(params[:limit].to_i).order('orderDateTime desc')
-			else
-				@orders = @orders.limit(100).order('orderDateTime desc')
-			end
 		end
 
 		if params[:findByUserCompany] != nil then
@@ -111,6 +66,11 @@ class SearchController < ApplicationController
 		# 		order.orderTags = order.orderTags.split(',')
 		# 	}
 		# end
+		if params[:limit] != nil then
+				@orders = @orders.limit(params[:limit].to_i)
+		end
+
+
     	  @result = true
 	      render status: :ok
 	end
